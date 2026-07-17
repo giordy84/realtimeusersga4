@@ -1,645 +1,1082 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-KW7MSMJW');</script>
-  <!-- End Google Tag Manager -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Realtime Users GA4 — Live Analytics for Your GA4 Property</title>
-  <meta name="description" content="See who's on your website right now. Turn any phone into a live dashboard for your Google Analytics 4 property — active users, updated every minute." />
-  <link rel="canonical" href="https://realtimeusersga4.com/" />
+  <head>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-KW7MSMJW");
+    </script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Realtime Users GA4 — Live Analytics for Your GA4 Property</title>
+    <meta
+      name="description"
+      content="See who's on your website right now. Turn any phone into a live dashboard for your Google Analytics 4 property — active users, updated every minute."
+    />
+    <link rel="canonical" href="https://realtimeusersga4.com/" />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Realtime Users GA4" />
-  <meta property="og:title" content="Realtime Users GA4 — Live Analytics for Your GA4 Property" />
-  <meta property="og:description" content="See who's on your website right now. Turn any phone into a live dashboard for your Google Analytics 4 property — active users, updated every minute." />
-  <meta property="og:image" content="https://realtimeusersga4.com/image.jpg" />
-  <meta property="og:image:width" content="1260" />
-  <meta property="og:image:height" content="800" />
-  <meta property="og:url" content="https://realtimeusersga4.com/" />
-  <meta property="og:locale" content="en_US" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Realtime Users GA4" />
+    <meta
+      property="og:title"
+      content="Realtime Users GA4 — Live Analytics for Your GA4 Property"
+    />
+    <meta
+      property="og:description"
+      content="See who's on your website right now. Turn any phone into a live dashboard for your Google Analytics 4 property — active users, updated every minute."
+    />
+    <meta
+      property="og:image"
+      content="https://realtimeusersga4.com/image.jpg"
+    />
+    <meta property="og:image:width" content="1260" />
+    <meta property="og:image:height" content="800" />
+    <meta property="og:url" content="https://realtimeusersga4.com/" />
+    <meta property="og:locale" content="en_US" />
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Realtime Users GA4 — Live Analytics for Your GA4 Property" />
-  <meta name="twitter:description" content="See who's on your website right now. Turn any phone into a live dashboard for your Google Analytics 4 property — active users, updated every minute." />
-  <meta name="twitter:image" content="https://realtimeusersga4.com/image.jpg" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Realtime Users GA4 — Live Analytics for Your GA4 Property"
+    />
+    <meta
+      name="twitter:description"
+      content="See who's on your website right now. Turn any phone into a live dashboard for your Google Analytics 4 property — active users, updated every minute."
+    />
+    <meta
+      name="twitter:image"
+      content="https://realtimeusersga4.com/image.jpg"
+    />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Structured data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Realtime Users GA4",
-    "applicationCategory": "BusinessApplication",
-    "operatingSystem": "iOS, Android",
-    "description": "See who's on your website right now. Turn any phone into a live dashboard for your Google Analytics 4 property — active users, updated every minute.",
-    "url": "https://realtimeusersga4.com/",
-    "image": "https://realtimeusersga4.com/image.jpg",
-    "offers": [
+    <!-- Structured data -->
+    <script type="application/ld+json">
       {
-        "@type": "Offer",
-        "name": "Free",
-        "price": "0",
-        "priceCurrency": "EUR"
-      },
-      {
-        "@type": "Offer",
-        "name": "Premium",
-        "price": "2.99",
-        "priceCurrency": "EUR"
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Realtime Users GA4",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "iOS, Android",
+        "description": "See who's on your website right now. Turn any phone into a live dashboard for your Google Analytics 4 property — active users, updated every minute.",
+        "url": "https://realtimeusersga4.com/",
+        "image": "https://realtimeusersga4.com/image.jpg",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Free",
+            "price": "0",
+            "priceCurrency": "EUR"
+          },
+          {
+            "@type": "Offer",
+            "name": "Premium",
+            "price": "2.99",
+            "priceCurrency": "EUR"
+          }
+        ]
       }
-    ]
-  }
-  </script>
+    </script>
 
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-    :root {
-      --bg:        #080B12;
-      --surface:   #0F1420;
-      --card:      #131928;
-      --border:    #1E2535;
-      --accent:    #4A7CFF;
-      --accent2:   #7C4AFF;
-      --text:      #F0F2F8;
-      --text-sub:  #8892A4;
-      --text-muted:#4E5A6E;
-      --live:      #22DD88;
-      --radius:    16px;
-      --font-disp: 'Space Grotesk', sans-serif;
-      --font-body: 'Inter', sans-serif;
-    }
+      :root {
+        --bg: #080b12;
+        --surface: #0f1420;
+        --card: #131928;
+        --border: #1e2535;
+        --accent: #4a7cff;
+        --accent2: #7c4aff;
+        --text: #f0f2f8;
+        --text-sub: #8892a4;
+        --text-muted: #4e5a6e;
+        --live: #22dd88;
+        --radius: 16px;
+        --font-disp: "Space Grotesk", sans-serif;
+        --font-body: "Inter", sans-serif;
+      }
 
-    html { scroll-behavior: smooth; }
+      html {
+        scroll-behavior: smooth;
+      }
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font-body);
-      font-size: 16px;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--font-body);
+        font-size: 16px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
 
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 18px 40px;
-      background: rgba(8,11,18,0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-logo {
-      font-family: var(--font-disp);
-      font-size: 18px; font-weight: 700;
-      color: var(--text);
-      text-decoration: none;
-      display: flex; align-items: center; gap: 8px;
-    }
-    .nav-logo span { color: var(--accent); }
-    .nav-links { display: flex; gap: 32px; }
-    .nav-links a {
-      color: var(--text-sub); text-decoration: none;
-      font-size: 14px; font-weight: 500;
-      transition: color .2s;
-    }
-    .nav-links a:hover { color: var(--text); }
-    .nav-cta {
-      background: var(--accent);
-      color: #fff; text-decoration: none;
-      padding: 10px 20px; border-radius: 10px;
-      font-size: 14px; font-weight: 600;
-      transition: opacity .2s;
-    }
-    .nav-cta:hover { opacity: .85; }
+      /* ── NAV ── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 40px;
+        background: rgba(8, 11, 18, 0.85);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-logo {
+        font-family: var(--font-disp);
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--text);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .nav-logo span {
+        color: var(--accent);
+      }
+      .nav-links {
+        display: flex;
+        gap: 32px;
+      }
+      .nav-links a {
+        color: var(--text-sub);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--text);
+      }
+      .nav-cta {
+        background: var(--accent);
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: 600;
+        transition: opacity 0.2s;
+      }
+      .nav-cta:hover {
+        opacity: 0.85;
+      }
 
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      text-align: center;
-      padding: 120px 24px 80px;
-      position: relative; overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 60% 50% at 30% 40%, rgba(74,124,255,.12) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 40% at 70% 60%, rgba(124,74,255,.08) 0%, transparent 60%);
-      pointer-events: none;
-    }
-    .live-badge {
-      display: inline-flex; align-items: center; gap: 7px;
-      background: rgba(34,221,136,.1);
-      border: 1px solid rgba(34,221,136,.25);
-      color: var(--live);
-      padding: 6px 14px; border-radius: 100px;
-      font-size: 12px; font-weight: 600; letter-spacing: .5px;
-      text-transform: uppercase; margin-bottom: 28px;
-    }
-    .live-dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--live);
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: .3; }
-    }
-    .hero h1 {
-      font-family: var(--font-disp);
-      font-size: clamp(40px, 7vw, 80px);
-      font-weight: 700; line-height: 1.05;
-      letter-spacing: -.02em;
-      margin-bottom: 24px;
-    }
-    .hero h1 em {
-      font-style: normal;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .hero p {
-      font-size: clamp(16px, 2.5vw, 20px);
-      color: var(--text-sub); max-width: 540px;
-      margin-bottom: 44px; line-height: 1.7;
-    }
-    .hero-btns {
-      display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;
-    }
-    .btn-primary {
-      background: var(--accent);
-      color: #fff; text-decoration: none;
-      padding: 14px 28px; border-radius: 12px;
-      font-size: 15px; font-weight: 600;
-      transition: opacity .2s, transform .15s;
-      display: flex; align-items: center; gap: 8px;
-    }
-    .btn-primary:hover { opacity: .88; transform: translateY(-1px); }
-    .btn-secondary {
-      background: var(--card);
-      border: 1px solid var(--border);
-      color: var(--text); text-decoration: none;
-      padding: 14px 28px; border-radius: 12px;
-      font-size: 15px; font-weight: 600;
-      transition: border-color .2s, transform .15s;
-    }
-    .btn-secondary:hover { border-color: var(--accent); transform: translateY(-1px); }
+      /* ── HERO ── */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 120px 24px 80px;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse 60% 50% at 30% 40%,
+            rgba(74, 124, 255, 0.12) 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            ellipse 50% 40% at 70% 60%,
+            rgba(124, 74, 255, 0.08) 0%,
+            transparent 60%
+          );
+        pointer-events: none;
+      }
+      .live-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        background: rgba(34, 221, 136, 0.1);
+        border: 1px solid rgba(34, 221, 136, 0.25);
+        color: var(--live);
+        padding: 6px 14px;
+        border-radius: 100px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        margin-bottom: 28px;
+      }
+      .live-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--live);
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.3;
+        }
+      }
+      .hero h1 {
+        font-family: var(--font-disp);
+        font-size: clamp(40px, 7vw, 80px);
+        font-weight: 700;
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        margin-bottom: 24px;
+      }
+      .hero h1 em {
+        font-style: normal;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .hero p {
+        font-size: clamp(16px, 2.5vw, 20px);
+        color: var(--text-sub);
+        max-width: 540px;
+        margin-bottom: 44px;
+        line-height: 1.7;
+      }
+      .hero-btns {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .btn-primary {
+        background: var(--accent);
+        color: #fff;
+        text-decoration: none;
+        padding: 14px 28px;
+        border-radius: 12px;
+        font-size: 15px;
+        font-weight: 600;
+        transition:
+          opacity 0.2s,
+          transform 0.15s;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .btn-primary:hover {
+        opacity: 0.88;
+        transform: translateY(-1px);
+      }
+      .btn-secondary {
+        background: var(--card);
+        border: 1px solid var(--border);
+        color: var(--text);
+        text-decoration: none;
+        padding: 14px 28px;
+        border-radius: 12px;
+        font-size: 15px;
+        font-weight: 600;
+        transition:
+          border-color 0.2s,
+          transform 0.15s;
+      }
+      .btn-secondary:hover {
+        border-color: var(--accent);
+        transform: translateY(-1px);
+      }
 
-
-    /* ── PHONE MOCKUP LANDSCAPE ──
+      /* ── PHONE MOCKUP LANDSCAPE ──
        Tutto scala tramite --phone-scale (calc(Npx * var(--phone-scale))),
        cosi il numero grande, il grafico e le scritte restano proporzionati
        al guscio del telefono invece di uscire dal contenitore su mobile,
        dove min()/vw da soli riducevano solo il guscio esterno. */
-    :root { --phone-scale: 1; }
-    @media (max-width: 900px) { :root { --phone-scale: 0.75; } }
-    @media (max-width: 640px) { :root { --phone-scale: 0.55; } }
-    @media (max-width: 400px) { :root { --phone-scale: 0.48; } }
+      :root {
+        --phone-scale: 1;
+      }
+      @media (max-width: 900px) {
+        :root {
+          --phone-scale: 0.75;
+        }
+      }
+      @media (max-width: 640px) {
+        :root {
+          --phone-scale: 0.55;
+        }
+      }
+      @media (max-width: 400px) {
+        :root {
+          --phone-scale: 0.48;
+        }
+      }
 
-    .phone-wrap {
-      margin-top: 64px;
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .phone-outer {
-      /* Landscape phone shell */
-      width: calc(620px * var(--phone-scale));
-      height: calc(300px * var(--phone-scale));
-      background: #0A0D14;
-      border-radius: calc(36px * var(--phone-scale));
-      border: calc(2px * var(--phone-scale)) solid #2A3148;
-      box-shadow:
-        0 0 0 1px rgba(255,255,255,.06),
-        0 40px 80px rgba(0,0,0,.6),
-        inset 0 1px 0 rgba(255,255,255,.08);
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: calc(12px * var(--phone-scale)) calc(48px * var(--phone-scale));
-      box-sizing: border-box;
-    }
-    /* Side buttons */
-    .phone-outer::before {
-      content: '';
-      position: absolute;
-      right: calc(-4px * var(--phone-scale)); top: calc(50px * var(--phone-scale));
-      width: calc(3px * var(--phone-scale)); height: calc(40px * var(--phone-scale));
-      background: #2A3148; border-radius: 0 2px 2px 0;
-    }
-    .phone-outer::after {
-      content: '';
-      position: absolute;
-      left: calc(-4px * var(--phone-scale)); top: calc(40px * var(--phone-scale));
-      width: calc(3px * var(--phone-scale)); height: calc(60px * var(--phone-scale));
-      background: #2A3148; border-radius: 2px 0 0 2px;
-      box-shadow: 0 calc(20px * var(--phone-scale)) 0 #2A3148, 0 calc(40px * var(--phone-scale)) 0 #2A3148;
-    }
-    /* Screen */
-    .phone-screen {
-      width: 100%; height: 100%;
-      background: var(--bg);
-      border-radius: calc(26px * var(--phone-scale));
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      padding: calc(14px * var(--phone-scale)) calc(18px * var(--phone-scale)) calc(10px * var(--phone-scale));
-      gap: calc(6px * var(--phone-scale));
-      box-sizing: border-box;
-    }
-    /* Top bar */
-    .ps-topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-    .ps-left { display: flex; flex-direction: column; gap: calc(2px * var(--phone-scale)); }
-    .ps-live { display: flex; align-items: center; gap: calc(4px * var(--phone-scale)); }
-    .ps-live-dot { width: calc(5px * var(--phone-scale)); height: calc(5px * var(--phone-scale)); border-radius: 50%; background: var(--live); animation: pulse 2s infinite; }
-    .ps-live-label { font-size: calc(8px * var(--phone-scale)); color: var(--live); font-weight: 700; letter-spacing: .4px; white-space: nowrap; }
-    .ps-domain { font-size: calc(11px * var(--phone-scale)); font-weight: 700; color: var(--text); white-space: nowrap; }
-    .ps-change { font-size: calc(9px * var(--phone-scale)); color: var(--text-muted); }
-    .ps-right { display: flex; align-items: center; gap: calc(6px * var(--phone-scale)); }
-    .ps-meta { text-align: right; }
-    .ps-time { font-size: calc(8px * var(--phone-scale)); color: var(--text-sub); white-space: nowrap; }
-    .ps-req  { font-size: calc(7px * var(--phone-scale)); color: var(--text-muted); white-space: nowrap; }
-    .ps-ring {
-      width: calc(32px * var(--phone-scale)); height: calc(32px * var(--phone-scale));
-      border-radius: 50%;
-      border: calc(2.5px * var(--phone-scale)) solid rgba(150,150,170,.2);
-      border-top-color: var(--accent);
-      display: flex; align-items: center; justify-content: center;
-      font-size: calc(9px * var(--phone-scale)); font-weight: 700; color: var(--accent);
-      flex-shrink: 0;
-    }
-    .ps-refresh {
-      width: calc(26px * var(--phone-scale)); height: calc(26px * var(--phone-scale));
-      border-radius: calc(7px * var(--phone-scale));
-      background: var(--card);
-      border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      font-size: calc(13px * var(--phone-scale)); color: var(--accent);
-      flex-shrink: 0;
-    }
-    /* Center number */
-    .ps-center {
-      flex: 1;
-      display: flex; align-items: center; justify-content: center; flex-direction: column;
-      gap: 0;
-      min-height: 0;
-    }
-    .ps-number {
-      font-family: var(--font-disp);
-      font-size: calc(72px * var(--phone-scale)); font-weight: 700;
-      line-height: 1; color: var(--text);
-    }
-    .ps-sublabel { font-size: calc(10px * var(--phone-scale)); color: var(--text-sub); margin-top: -2px; }
-    /* Chart */
-    .ps-chart {
-      display: flex; flex-direction: column; gap: calc(4px * var(--phone-scale));
-    }
-    .ps-chart-label { font-size: calc(7px * var(--phone-scale)); font-weight: 700; color: var(--text-muted); letter-spacing: .5px; text-transform: uppercase; }
-    .ps-bars {
-      display: flex; align-items: flex-end; gap: 2px; height: calc(36px * var(--phone-scale));
-    }
-    .ps-bars span { flex: 1; border-radius: 2px; background: var(--accent); }
-    .ps-xaxis { display: flex; justify-content: space-between; }
-    .ps-xaxis span { font-size: calc(7px * var(--phone-scale)); color: var(--text-muted); }
+      .phone-wrap {
+        margin-top: 64px;
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .phone-outer {
+        /* Landscape phone shell */
+        width: calc(620px * var(--phone-scale));
+        height: calc(300px * var(--phone-scale));
+        background: #0a0d14;
+        border-radius: calc(36px * var(--phone-scale));
+        border: calc(2px * var(--phone-scale)) solid #2a3148;
+        box-shadow:
+          0 0 0 1px rgba(255, 255, 255, 0.06),
+          0 40px 80px rgba(0, 0, 0, 0.6),
+          inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: calc(12px * var(--phone-scale)) calc(48px * var(--phone-scale));
+        box-sizing: border-box;
+      }
+      /* Side buttons */
+      .phone-outer::before {
+        content: "";
+        position: absolute;
+        right: calc(-4px * var(--phone-scale));
+        top: calc(50px * var(--phone-scale));
+        width: calc(3px * var(--phone-scale));
+        height: calc(40px * var(--phone-scale));
+        background: #2a3148;
+        border-radius: 0 2px 2px 0;
+      }
+      .phone-outer::after {
+        content: "";
+        position: absolute;
+        left: calc(-4px * var(--phone-scale));
+        top: calc(40px * var(--phone-scale));
+        width: calc(3px * var(--phone-scale));
+        height: calc(60px * var(--phone-scale));
+        background: #2a3148;
+        border-radius: 2px 0 0 2px;
+        box-shadow:
+          0 calc(20px * var(--phone-scale)) 0 #2a3148,
+          0 calc(40px * var(--phone-scale)) 0 #2a3148;
+      }
+      /* Screen */
+      .phone-screen {
+        width: 100%;
+        height: 100%;
+        background: var(--bg);
+        border-radius: calc(26px * var(--phone-scale));
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        padding: calc(14px * var(--phone-scale)) calc(18px * var(--phone-scale))
+          calc(10px * var(--phone-scale));
+        gap: calc(6px * var(--phone-scale));
+        box-sizing: border-box;
+      }
+      /* Top bar */
+      .ps-topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+      .ps-left {
+        display: flex;
+        flex-direction: column;
+        gap: calc(2px * var(--phone-scale));
+      }
+      .ps-live {
+        display: flex;
+        align-items: center;
+        gap: calc(4px * var(--phone-scale));
+      }
+      .ps-live-dot {
+        width: calc(5px * var(--phone-scale));
+        height: calc(5px * var(--phone-scale));
+        border-radius: 50%;
+        background: var(--live);
+        animation: pulse 2s infinite;
+      }
+      .ps-live-label {
+        font-size: calc(8px * var(--phone-scale));
+        color: var(--live);
+        font-weight: 700;
+        letter-spacing: 0.4px;
+        white-space: nowrap;
+      }
+      .ps-domain {
+        font-size: calc(11px * var(--phone-scale));
+        font-weight: 700;
+        color: var(--text);
+        white-space: nowrap;
+      }
+      .ps-change {
+        font-size: calc(9px * var(--phone-scale));
+        color: var(--text-muted);
+      }
+      .ps-right {
+        display: flex;
+        align-items: center;
+        gap: calc(6px * var(--phone-scale));
+      }
+      .ps-meta {
+        text-align: right;
+      }
+      .ps-time {
+        font-size: calc(8px * var(--phone-scale));
+        color: var(--text-sub);
+        white-space: nowrap;
+      }
+      .ps-req {
+        font-size: calc(7px * var(--phone-scale));
+        color: var(--text-muted);
+        white-space: nowrap;
+      }
+      .ps-ring {
+        width: calc(32px * var(--phone-scale));
+        height: calc(32px * var(--phone-scale));
+        border-radius: 50%;
+        border: calc(2.5px * var(--phone-scale)) solid rgba(150, 150, 170, 0.2);
+        border-top-color: var(--accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: calc(9px * var(--phone-scale));
+        font-weight: 700;
+        color: var(--accent);
+        flex-shrink: 0;
+      }
+      .ps-refresh {
+        width: calc(26px * var(--phone-scale));
+        height: calc(26px * var(--phone-scale));
+        border-radius: calc(7px * var(--phone-scale));
+        background: var(--card);
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: calc(13px * var(--phone-scale));
+        color: var(--accent);
+        flex-shrink: 0;
+      }
+      /* Center number */
+      .ps-center {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 0;
+        min-height: 0;
+      }
+      .ps-number {
+        font-family: var(--font-disp);
+        font-size: calc(72px * var(--phone-scale));
+        font-weight: 700;
+        line-height: 1;
+        color: var(--text);
+      }
+      .ps-sublabel {
+        font-size: calc(10px * var(--phone-scale));
+        color: var(--text-sub);
+        margin-top: -2px;
+      }
+      /* Chart */
+      .ps-chart {
+        display: flex;
+        flex-direction: column;
+        gap: calc(4px * var(--phone-scale));
+      }
+      .ps-chart-label {
+        font-size: calc(7px * var(--phone-scale));
+        font-weight: 700;
+        color: var(--text-muted);
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+      .ps-bars {
+        display: flex;
+        align-items: flex-end;
+        gap: 2px;
+        height: calc(36px * var(--phone-scale));
+      }
+      .ps-bars span {
+        flex: 1;
+        border-radius: 2px;
+        background: var(--accent);
+      }
+      .ps-xaxis {
+        display: flex;
+        justify-content: space-between;
+      }
+      .ps-xaxis span {
+        font-size: calc(7px * var(--phone-scale));
+        color: var(--text-muted);
+      }
 
-    /* ── PRICING fix — bottone sempre in fondo ── */
-    .pricing-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 20px; padding: 32px;
-      display: flex; flex-direction: column;
-    }
-    .pricing-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; flex: 1; }
-    .pricing-cta { margin-top: auto; }
-    /* ── SECTIONS ── */
-    section { padding: 100px 24px; max-width: 1100px; margin: 0 auto; }
+      /* ── PRICING fix — bottone sempre in fondo ── */
+      .pricing-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+      }
+      .pricing-features {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 28px;
+        flex: 1;
+      }
+      .pricing-cta {
+        margin-top: auto;
+      }
+      /* ── SECTIONS ── */
+      section {
+        padding: 100px 24px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
 
-    .section-label {
-      font-size: 11px; font-weight: 700; letter-spacing: 1.2px;
-      text-transform: uppercase; color: var(--accent);
-      margin-bottom: 16px;
-    }
-    .section-title {
-      font-family: var(--font-disp);
-      font-size: clamp(28px, 4vw, 44px);
-      font-weight: 700; line-height: 1.15;
-      letter-spacing: -.02em; margin-bottom: 16px;
-    }
-    .section-sub {
-      font-size: 18px; color: var(--text-sub); max-width: 520px;
-      line-height: 1.7; margin-bottom: 56px;
-    }
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-    .feature-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px;
-      transition: border-color .2s, transform .2s;
-    }
-    .feature-card:hover { border-color: rgba(74,124,255,.4); transform: translateY(-2px); }
-    .feature-icon { font-size: 28px; margin-bottom: 16px; }
-    .feature-card h3 {
-      font-family: var(--font-disp);
-      font-size: 17px; font-weight: 600;
-      margin-bottom: 8px;
-    }
-    .feature-card p { font-size: 14px; color: var(--text-sub); line-height: 1.6; }
+      .section-label {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 16px;
+      }
+      .section-title {
+        font-family: var(--font-disp);
+        font-size: clamp(28px, 4vw, 44px);
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+        margin-bottom: 16px;
+      }
+      .section-sub {
+        font-size: 18px;
+        color: var(--text-sub);
+        max-width: 520px;
+        line-height: 1.7;
+        margin-bottom: 56px;
+      }
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+      }
+      .feature-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 28px;
+        transition:
+          border-color 0.2s,
+          transform 0.2s;
+      }
+      .feature-card:hover {
+        border-color: rgba(74, 124, 255, 0.4);
+        transform: translateY(-2px);
+      }
+      .feature-icon {
+        font-size: 28px;
+        margin-bottom: 16px;
+      }
+      .feature-card h3 {
+        font-family: var(--font-disp);
+        font-size: 17px;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+      .feature-card p {
+        font-size: 14px;
+        color: var(--text-sub);
+        line-height: 1.6;
+      }
 
-    /* ── PRICING ── */
-    .pricing-wrap {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px; max-width: 680px; margin: 0 auto;
-    }
-    .pricing-card.featured {
-      border-color: var(--accent);
-      background: linear-gradient(135deg, rgba(74,124,255,.08), rgba(124,74,255,.05));
-    }
-    .pricing-tier { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-sub); margin-bottom: 12px; }
-    .pricing-card.featured .pricing-tier { color: var(--accent); }
-    .pricing-price {
-      font-family: var(--font-disp);
-      font-size: 48px; font-weight: 700;
-      line-height: 1; margin-bottom: 6px;
-    }
-    .pricing-price sup { font-size: 24px; vertical-align: super; }
-    .pricing-note { font-size: 13px; color: var(--text-sub); margin-bottom: 28px; }
-    .pricing-features li { font-size: 14px; display: flex; align-items: flex-start; gap: 10px; }
-    .pricing-features li::before { content: '✓'; color: var(--live); font-weight: 700; flex-shrink: 0; }
-    .pricing-cta {
-      display: block; text-align: center; text-decoration: none;
-      padding: 13px; border-radius: 12px;
-      font-size: 15px; font-weight: 600;
-      transition: opacity .2s;
-    }
-    .pricing-card .pricing-cta { background: var(--surface); border: 1px solid var(--border); color: var(--text); }
-    .pricing-card.featured .pricing-cta { background: var(--accent); color: #fff; }
-    .pricing-cta:hover { opacity: .85; }
+      /* ── PRICING ── */
+      .pricing-wrap {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+        max-width: 680px;
+        margin: 0 auto;
+      }
+      .pricing-card.featured {
+        border-color: var(--accent);
+        background: linear-gradient(
+          135deg,
+          rgba(74, 124, 255, 0.08),
+          rgba(124, 74, 255, 0.05)
+        );
+      }
+      .pricing-tier {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--text-sub);
+        margin-bottom: 12px;
+      }
+      .pricing-card.featured .pricing-tier {
+        color: var(--accent);
+      }
+      .pricing-price {
+        font-family: var(--font-disp);
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 1;
+        margin-bottom: 6px;
+      }
+      .pricing-price sup {
+        font-size: 24px;
+        vertical-align: super;
+      }
+      .pricing-note {
+        font-size: 13px;
+        color: var(--text-sub);
+        margin-bottom: 28px;
+      }
+      .pricing-features li {
+        font-size: 14px;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .pricing-features li::before {
+        content: "✓";
+        color: var(--live);
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+      .pricing-cta {
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        padding: 13px;
+        border-radius: 12px;
+        font-size: 15px;
+        font-weight: 600;
+        transition: opacity 0.2s;
+      }
+      .pricing-card .pricing-cta {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        color: var(--text);
+      }
+      .pricing-card.featured .pricing-cta {
+        background: var(--accent);
+        color: #fff;
+      }
+      .pricing-cta:hover {
+        opacity: 0.85;
+      }
 
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 40px 40px;
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 20px;
-      font-size: 13px; color: var(--text-muted);
-    }
-    footer a { color: var(--text-sub); text-decoration: none; }
-    footer a:hover { color: var(--text); }
-    .footer-links { display: flex; gap: 24px; }
+      /* ── FOOTER ── */
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 40px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+        font-size: 13px;
+        color: var(--text-muted);
+      }
+      footer a {
+        color: var(--text-sub);
+        text-decoration: none;
+      }
+      footer a:hover {
+        color: var(--text);
+      }
+      .footer-links {
+        display: flex;
+        gap: 24px;
+      }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 640px) {
-      nav { padding: 16px 20px; }
-      .nav-links { display: none; }
-      footer { padding: 32px 20px; flex-direction: column; align-items: flex-start; }
-    }
+      /* ── RESPONSIVE ── */
+      @media (max-width: 640px) {
+        nav {
+          padding: 16px 20px;
+        }
+        .nav-links {
+          display: none;
+        }
+        footer {
+          padding: 32px 20px;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
 
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation: none !important; transition: none !important; }
-    }
-  </style>
-</head>
-<body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KW7MSMJW"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-KW7MSMJW"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
-  <!-- NAV -->
-  <nav>
-    <a class="nav-logo" href="/">Realtime Users <span>for GA4</span></a>
-    <div class="nav-links">
-      <a href="#features">Features</a>
-      <a href="#pricing">Pricing</a>
-      <a href="privacy-policy.html">Privacy</a>
-    </div>
-    <a class="nav-cta" href="#download">Download</a>
-  </nav>
+    <!-- NAV -->
+    <nav>
+      <a class="nav-logo" href="/">Realtime Users <span>for GA4</span></a>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="privacy-policy.html">Privacy</a>
+      </div>
+      <a class="nav-cta" href="#download">Download</a>
+    </nav>
 
-  <!-- HERO -->
-  <section class="hero" style="max-width:none; padding-top:120px;">
-    <div class="live-badge">
-      <span class="live-dot"></span>
-      Live Analytics
-    </div>
-    <h1>Your website's heartbeat.<br><em>Always visible, always on.</em></h1>
-    <p>Turn an old phone into a live dashboard for your Google Analytics 4 property. Set it next to your monitor or TV — and watch your audience breathe, minute by minute.</p>
-    <div class="hero-btns">
-      <a class="btn-primary" href="https://apps.apple.com/us/app/realtime-users-for-ga4/id6782985912">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-        App Store
-      </a>
-      <a class="btn-secondary" href="#download">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.64.19.96.07l12.45-7.19-2.78-2.78-10.63 9.9zM.58 1.5C.22 1.83 0 2.36 0 3.04v17.93c0 .68.22 1.21.59 1.54l.08.07 10.04-10.04v-.23L.65 1.43l-.07.07zM20.37 10.43l-2.84-1.64-3.13 3.13 3.13 3.12 2.87-1.66c.82-.47.82-1.48-.03-1.95zM3.18.25L15.63 7.44l-2.78 2.78L2.22.31c.31-.13.67-.11.96.06-.01-.01 0-.12 0-.12z"/></svg>
-        Google Play
-      </a>
-    </div>
+    <!-- HERO -->
+    <section class="hero" style="max-width: none; padding-top: 120px">
+      <div class="live-badge">
+        <span class="live-dot"></span>
+        Live Analytics
+      </div>
+      <h1>
+        Your website's heartbeat.<br /><em>Always visible, always on.</em>
+      </h1>
+      <p>
+        Turn an old phone into a live dashboard for your Google Analytics 4
+        property. Set it next to your monitor or TV — and watch your audience
+        breathe, minute by minute.
+      </p>
+      <div class="hero-btns">
+        <a
+          class="btn-primary"
+          href="https://apps.apple.com/us/app/realtime-users-for-ga4/id6782985912"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"
+            />
+          </svg>
+          App Store
+        </a>
+        <a class="btn-secondary" href="#download">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M3.18 23.76c.3.17.64.19.96.07l12.45-7.19-2.78-2.78-10.63 9.9zM.58 1.5C.22 1.83 0 2.36 0 3.04v17.93c0 .68.22 1.21.59 1.54l.08.07 10.04-10.04v-.23L.65 1.43l-.07.07zM20.37 10.43l-2.84-1.64-3.13 3.13 3.13 3.12 2.87-1.66c.82-.47.82-1.48-.03-1.95zM3.18.25L15.63 7.44l-2.78 2.78L2.22.31c.31-.13.67-.11.96.06-.01-.01 0-.12 0-.12z"
+            />
+          </svg>
+          Google Play
+        </a>
+      </div>
 
-    <div class="phone-wrap">
-      <div class="phone-outer">
-        <div class="phone-screen">
-
-          <!-- Top bar -->
-          <div class="ps-topbar">
-            <div class="ps-left">
-              <div class="ps-live">
-                <span class="ps-live-dot"></span>
-                <span class="ps-live-label">LIVE · last 30 min</span>
+      <div class="phone-wrap">
+        <div class="phone-outer">
+          <div class="phone-screen">
+            <!-- Top bar -->
+            <div class="ps-topbar">
+              <div class="ps-left">
+                <div class="ps-live">
+                  <span class="ps-live-dot"></span>
+                  <span class="ps-live-label">LIVE · last 30 min</span>
+                </div>
+                <div class="ps-domain">
+                  yourwebsite.com <span class="ps-change">‹ Change</span>
+                </div>
               </div>
-              <div class="ps-domain">yourwebsite.com <span class="ps-change">‹ Change</span></div>
-            </div>
-            <div class="ps-right">
-              <div class="ps-meta">
-                <div class="ps-time">20:22:14</div>
-                <div class="ps-req">1,034 req today</div>
+              <div class="ps-right">
+                <div class="ps-meta">
+                  <div class="ps-time">20:22:14</div>
+                  <div class="ps-req">1,034 req today</div>
+                </div>
+                <div class="ps-ring">42</div>
+                <div class="ps-refresh">↻</div>
               </div>
-              <div class="ps-ring">42</div>
-              <div class="ps-refresh">↻</div>
+            </div>
+
+            <!-- Number -->
+            <div class="ps-center">
+              <div class="ps-number">142</div>
+              <div class="ps-sublabel">active users</div>
+            </div>
+
+            <!-- Chart -->
+            <div class="ps-chart">
+              <div class="ps-chart-label">Users per minute</div>
+              <div class="ps-bars">
+                <span style="height: 40%"></span
+                ><span style="height: 55%"></span>
+                <span style="height: 45%"></span
+                ><span style="height: 70%"></span>
+                <span style="height: 50%"></span
+                ><span style="height: 85%"></span>
+                <span style="height: 60%"></span
+                ><span style="height: 75%"></span>
+                <span style="height: 45%"></span
+                ><span style="height: 90%"></span>
+                <span style="height: 55%"></span
+                ><span style="height: 65%"></span>
+                <span style="height: 80%"></span
+                ><span style="height: 70%"></span>
+                <span style="height: 95%"></span
+                ><span style="height: 75%"></span>
+                <span style="height: 60%"></span
+                ><span style="height: 85%"></span>
+                <span style="height: 55%"></span
+                ><span style="height: 100%"></span>
+                <span style="height: 70%"></span
+                ><span style="height: 90%"></span>
+                <span style="height: 65%"></span
+                ><span style="height: 80%"></span>
+                <span style="height: 75%"></span
+                ><span style="height: 95%"></span>
+                <span style="height: 85%"></span
+                ><span style="height: 100%"></span>
+                <span style="height: 90%"></span
+                ><span style="height: 95%"></span>
+              </div>
+              <div class="ps-xaxis">
+                <span>−29 min</span>
+                <span>now</span>
+              </div>
             </div>
           </div>
-
-          <!-- Number -->
-          <div class="ps-center">
-            <div class="ps-number">142</div>
-            <div class="ps-sublabel">active users</div>
-          </div>
-
-          <!-- Chart -->
-          <div class="ps-chart">
-            <div class="ps-chart-label">Users per minute</div>
-            <div class="ps-bars">
-              <span style="height:40%"></span><span style="height:55%"></span>
-              <span style="height:45%"></span><span style="height:70%"></span>
-              <span style="height:50%"></span><span style="height:85%"></span>
-              <span style="height:60%"></span><span style="height:75%"></span>
-              <span style="height:45%"></span><span style="height:90%"></span>
-              <span style="height:55%"></span><span style="height:65%"></span>
-              <span style="height:80%"></span><span style="height:70%"></span>
-              <span style="height:95%"></span><span style="height:75%"></span>
-              <span style="height:60%"></span><span style="height:85%"></span>
-              <span style="height:55%"></span><span style="height:100%"></span>
-              <span style="height:70%"></span><span style="height:90%"></span>
-              <span style="height:65%"></span><span style="height:80%"></span>
-              <span style="height:75%"></span><span style="height:95%"></span>
-              <span style="height:85%"></span><span style="height:100%"></span>
-              <span style="height:90%"></span><span style="height:95%"></span>
-            </div>
-            <div class="ps-xaxis">
-              <span>−29 min</span>
-              <span>now</span>
-            </div>
-          </div>
-
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- SHOWCASE -->
-  <section id="showcase" style="text-align:center;">
-    <div class="section-label">In your space</div>
-    <h2 class="section-title">Looks great anywhere</h2>
-    <p class="section-sub" style="margin:0 auto 56px;">Prop it up next to your monitor, on your desk, or on the counter — always live, always visible.</p>
-    <img
-      src="image.jpg"
-      width="1260"
-      height="800"
-      loading="lazy"
-      alt="Realtime Users GA4 running on a phone propped up in a home office, a desk, and a kitchen counter"
-      style="width:100%;max-width:1100px;height:auto;border-radius:var(--radius);border:1px solid var(--border);display:block;margin:0 auto;"
-    />
-  </section>
+    <!-- SHOWCASE -->
+    <section id="showcase" style="text-align: center">
+      <div class="section-label">In your space</div>
+      <h2 class="section-title">Looks great anywhere</h2>
+      <p class="section-sub" style="margin: 0 auto 56px">
+        Prop it up next to your monitor, on your desk, or on the counter —
+        always live, always visible.
+      </p>
+      <img
+        src="image.jpg"
+        width="1260"
+        height="800"
+        loading="lazy"
+        alt="Realtime Users GA4 running on a phone propped up in a home office, a desk, and a kitchen counter"
+        style="
+          width: 100%;
+          max-width: 1100px;
+          height: auto;
+          border-radius: var(--radius);
+          border: 1px solid var(--border);
+          display: block;
+          margin: 0 auto;
+        "
+      />
+    </section>
 
-  <!-- FEATURES -->
-  <section id="features">
-    <div class="section-label">Features</div>
-    <h2 class="section-title">Everything you need,<br>nothing you don't</h2>
-    <p class="section-sub">Built for website owners, marketers, and developers who want a fast, clean window into their live traffic.</p>
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">💓</div>
-        <h3>Real-time active users</h3>
-        <p>See exactly who's on your site right now — last 30 minutes, at a glance, no digging through GA4 reports.</p>
+    <!-- FEATURES -->
+    <section id="features">
+      <div class="section-label">Features</div>
+      <h2 class="section-title">Everything you need,<br />nothing you don't</h2>
+      <p class="section-sub">
+        Built for website owners, marketers, and developers who want a fast,
+        clean window into their live traffic.
+      </p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">💓</div>
+          <h3>Real-time active users</h3>
+          <p>
+            See exactly who's on your site right now — last 30 minutes, at a
+            glance, no digging through GA4 reports.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Minute-by-minute bar chart</h3>
+          <p>
+            A bar chart showing user activity for each of the last 30 minutes,
+            refreshed automatically on your chosen interval.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔄</div>
+          <h3>Auto-refresh, always up to date</h3>
+          <p>
+            Choose your refresh rate and let it run. The dashboard keeps itself
+            current — no taps, no reloads.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3>Your data stays yours</h3>
+          <p>
+            Sign in with your own Google account and connect directly to your
+            GA4 properties. Read-only access — we never see, store, or share
+            your data.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚙️</div>
+          <h3>Smart quota protection</h3>
+          <p>
+            API usage counts against your own GA4 quota, not ours. The app
+            monitors it automatically and slows down if it runs low.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎨</div>
+          <h3>Themes, layouts &amp; fonts</h3>
+          <p>
+            Color themes, multiple dashboard layouts for landscape and portrait,
+            and custom fonts. Make it feel like yours, then leave it on.
+          </p>
+        </div>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon">📊</div>
-        <h3>Minute-by-minute bar chart</h3>
-        <p>A bar chart showing user activity for each of the last 30 minutes, refreshed automatically on your chosen interval.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🔄</div>
-        <h3>Auto-refresh, always up to date</h3>
-        <p>Choose your refresh rate and let it run. The dashboard keeps itself current — no taps, no reloads.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🔒</div>
-        <h3>Your data stays yours</h3>
-        <p>Sign in with your own Google account and connect directly to your GA4 properties. Read-only access — we never see, store, or share your data.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">⚙️</div>
-        <h3>Smart quota protection</h3>
-        <p>API usage counts against your own GA4 quota, not ours. The app monitors it automatically and slows down if it runs low.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🎨</div>
-        <h3>Themes, layouts &amp; fonts</h3>
-        <p>Color themes, multiple dashboard layouts for landscape and portrait, and custom fonts. Make it feel like yours, then leave it on.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- PRICING -->
-  <section id="pricing" style="text-align:center;">
-    <div class="section-label">Pricing</div>
-    <h2 class="section-title">Simple, one-time pricing</h2>
-    <p class="section-sub" style="margin:0 auto 56px;">Try it free. Unlock everything for a single payment — no subscriptions, no recurring fees.</p>
-    <div class="pricing-wrap">
-      <div class="pricing-card">
-        <div class="pricing-tier">Free</div>
-        <div class="pricing-price">€0</div>
-        <div class="pricing-note">No credit card needed</div>
-        <ul class="pricing-features">
-          <li>30 refreshes to try the app</li>
-          <li>All themes &amp; layouts</li>
-          <li>All GA4 properties</li>
-        </ul>
-        <a class="pricing-cta" href="#download">Download free</a>
+    <!-- PRICING -->
+    <section id="pricing" style="text-align: center">
+      <div class="section-label">Pricing</div>
+      <h2 class="section-title">Simple, one-time pricing</h2>
+      <p class="section-sub" style="margin: 0 auto 56px">
+        Try it free. Unlock everything for a single payment — no subscriptions,
+        no recurring fees.
+      </p>
+      <div class="pricing-wrap">
+        <div class="pricing-card">
+          <div class="pricing-tier">Free</div>
+          <div class="pricing-price">€0</div>
+          <div class="pricing-note">No credit card needed</div>
+          <ul class="pricing-features">
+            <li>30 refreshes to try the app</li>
+            <li>All themes &amp; layouts</li>
+            <li>All GA4 properties</li>
+          </ul>
+          <a class="pricing-cta" href="#download">Download free</a>
+        </div>
+        <div class="pricing-card featured">
+          <div class="pricing-tier">Premium</div>
+          <div class="pricing-price"><sup>€</sup>2.99</div>
+          <div class="pricing-note">One-time purchase, forever</div>
+          <ul class="pricing-features">
+            <li>Unlimited refreshes</li>
+            <li>All themes &amp; layouts</li>
+            <li>All GA4 properties</li>
+            <li>Smart quota protection</li>
+            <li>Future updates included</li>
+          </ul>
+          <a class="pricing-cta" href="#download">Get Premium</a>
+        </div>
       </div>
-      <div class="pricing-card featured">
-        <div class="pricing-tier">Premium</div>
-        <div class="pricing-price"><sup>€</sup>2.99</div>
-        <div class="pricing-note">One-time purchase, forever</div>
-        <ul class="pricing-features">
-          <li>Unlimited refreshes</li>
-          <li>All themes &amp; layouts</li>
-          <li>All GA4 properties</li>
-          <li>Smart quota protection</li>
-          <li>Future updates included</li>
-        </ul>
-        <a class="pricing-cta" href="#download">Get Premium</a>
+    </section>
+
+    <!-- DOWNLOAD -->
+    <section id="download" style="text-align: center">
+      <div class="section-label">Download</div>
+      <h2 class="section-title">Get the app</h2>
+      <p class="section-sub" style="margin: 0 auto 44px">
+        Available on iPhone, iPad, and Android. Free to download.
+      </p>
+      <div
+        style="
+          display: flex;
+          gap: 16px;
+          justify-content: center;
+          flex-wrap: wrap;
+        "
+      >
+        <a
+          class="btn-primary"
+          href="https://apps.apple.com/us/app/realtime-users-for-ga4/id6782985912"
+          style="
+            font-size: 16px;
+            padding: 16px 32px;
+            width: 320px;
+            justify-content: center;
+            box-sizing: border-box;
+          "
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"
+            />
+          </svg>
+          Download on the App Store
+        </a>
+        <a
+          class="btn-secondary"
+          href="https://play.google.com/store/apps/details?id=com.ga4realtimeapp"
+          style="
+            font-size: 16px;
+            padding: 16px 32px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 320px;
+            justify-content: center;
+            box-sizing: border-box;
+          "
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M3.18 23.76c.3.17.64.19.96.07l12.45-7.19-2.78-2.78-10.63 9.9zM.58 1.5C.22 1.83 0 2.36 0 3.04v17.93c0 .68.22 1.21.59 1.54l.08.07 10.04-10.04v-.23L.65 1.43l-.07.07zM20.37 10.43l-2.84-1.64-3.13 3.13 3.13 3.12 2.87-1.66c.82-.47.82-1.48-.03-1.95zM3.18.25L15.63 7.44l-2.78 2.78L2.22.31c.31-.13.67-.11.96.06-.01-.01 0-.12 0-.12z"
+            />
+          </svg>
+          Get it on Google Play
+        </a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- DOWNLOAD -->
-  <section id="download" style="text-align:center;">
-    <div class="section-label">Download</div>
-    <h2 class="section-title">Get the app</h2>
-    <p class="section-sub" style="margin:0 auto 44px;">Available on iPhone, iPad, and Android. Free to download.</p>
-    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-      <a class="btn-primary" href="https://apps.apple.com/us/app/realtime-users-for-ga4/id6782985912" style="font-size:16px;padding:16px 32px;width:280px;justify-content:center;box-sizing:border-box;">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-        Download on the App Store
-      </a>
-      <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.ga4realtimeapp" style="font-size:16px;padding:16px 32px;display:flex;align-items:center;gap:8px;width:280px;justify-content:center;box-sizing:border-box;">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.64.19.96.07l12.45-7.19-2.78-2.78-10.63 9.9zM.58 1.5C.22 1.83 0 2.36 0 3.04v17.93c0 .68.22 1.21.59 1.54l.08.07 10.04-10.04v-.23L.65 1.43l-.07.07zM20.37 10.43l-2.84-1.64-3.13 3.13 3.13 3.12 2.87-1.66c.82-.47.82-1.48-.03-1.95zM3.18.25L15.63 7.44l-2.78 2.78L2.22.31c.31-.13.67-.11.96.06-.01-.01 0-.12 0-.12z"/></svg>
-        Get it on Google Play
-      </a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <span>© 2026 RealtimeUsersGA4. Not affiliated with Google.</span>
-    <div class="footer-links">
-      <a href="privacy-policy.html">Privacy Policy</a>
-      <a href="oauth-verification.html">OAuth Info</a>
-    </div>
-  </footer>
-
-</body>
+    <!-- FOOTER -->
+    <footer>
+      <span>© 2026 RealtimeUsersGA4. Not affiliated with Google.</span>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="oauth-verification.html">OAuth Info</a>
+      </div>
+    </footer>
+  </body>
 </html>
