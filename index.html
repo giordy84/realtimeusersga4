@@ -207,7 +207,16 @@
     .btn-secondary:hover { border-color: var(--accent); transform: translateY(-1px); }
 
 
-    /* ── PHONE MOCKUP LANDSCAPE ── */
+    /* ── PHONE MOCKUP LANDSCAPE ──
+       Tutto scala tramite --phone-scale (calc(Npx * var(--phone-scale))),
+       cosi il numero grande, il grafico e le scritte restano proporzionati
+       al guscio del telefono invece di uscire dal contenitore su mobile,
+       dove min()/vw da soli riducevano solo il guscio esterno. */
+    :root { --phone-scale: 1; }
+    @media (max-width: 900px) { :root { --phone-scale: 0.75; } }
+    @media (max-width: 640px) { :root { --phone-scale: 0.55; } }
+    @media (max-width: 400px) { :root { --phone-scale: 0.48; } }
+
     .phone-wrap {
       margin-top: 64px;
       position: relative;
@@ -217,11 +226,11 @@
     }
     .phone-outer {
       /* Landscape phone shell */
-      width: min(620px, 90vw);
-      height: min(300px, 44vw);
+      width: calc(620px * var(--phone-scale));
+      height: calc(300px * var(--phone-scale));
       background: #0A0D14;
-      border-radius: 36px;
-      border: 2px solid #2A3148;
+      border-radius: calc(36px * var(--phone-scale));
+      border: calc(2px * var(--phone-scale)) solid #2A3148;
       box-shadow:
         0 0 0 1px rgba(255,255,255,.06),
         0 40px 80px rgba(0,0,0,.6),
@@ -230,34 +239,36 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 12px 48px;
+      padding: calc(12px * var(--phone-scale)) calc(48px * var(--phone-scale));
+      box-sizing: border-box;
     }
     /* Side buttons */
     .phone-outer::before {
       content: '';
       position: absolute;
-      right: -4px; top: 50px;
-      width: 3px; height: 40px;
+      right: calc(-4px * var(--phone-scale)); top: calc(50px * var(--phone-scale));
+      width: calc(3px * var(--phone-scale)); height: calc(40px * var(--phone-scale));
       background: #2A3148; border-radius: 0 2px 2px 0;
     }
     .phone-outer::after {
       content: '';
       position: absolute;
-      left: -4px; top: 40px;
-      width: 3px; height: 60px;
+      left: calc(-4px * var(--phone-scale)); top: calc(40px * var(--phone-scale));
+      width: calc(3px * var(--phone-scale)); height: calc(60px * var(--phone-scale));
       background: #2A3148; border-radius: 2px 0 0 2px;
-      box-shadow: 0 20px 0 #2A3148, 0 40px 0 #2A3148;
+      box-shadow: 0 calc(20px * var(--phone-scale)) 0 #2A3148, 0 calc(40px * var(--phone-scale)) 0 #2A3148;
     }
     /* Screen */
     .phone-screen {
       width: 100%; height: 100%;
       background: var(--bg);
-      border-radius: 26px;
+      border-radius: calc(26px * var(--phone-scale));
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      padding: 14px 18px 10px;
-      gap: 6px;
+      padding: calc(14px * var(--phone-scale)) calc(18px * var(--phone-scale)) calc(10px * var(--phone-scale));
+      gap: calc(6px * var(--phone-scale));
+      box-sizing: border-box;
     }
     /* Top bar */
     .ps-topbar {
@@ -265,55 +276,58 @@
       justify-content: space-between;
       align-items: flex-start;
     }
-    .ps-left { display: flex; flex-direction: column; gap: 2px; }
-    .ps-live { display: flex; align-items: center; gap: 4px; }
-    .ps-live-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--live); animation: pulse 2s infinite; }
-    .ps-live-label { font-size: 8px; color: var(--live); font-weight: 700; letter-spacing: .4px; }
-    .ps-domain { font-size: 11px; font-weight: 700; color: var(--text); }
-    .ps-change { font-size: 9px; color: var(--text-muted); }
-    .ps-right { display: flex; align-items: center; gap: 6px; }
+    .ps-left { display: flex; flex-direction: column; gap: calc(2px * var(--phone-scale)); }
+    .ps-live { display: flex; align-items: center; gap: calc(4px * var(--phone-scale)); }
+    .ps-live-dot { width: calc(5px * var(--phone-scale)); height: calc(5px * var(--phone-scale)); border-radius: 50%; background: var(--live); animation: pulse 2s infinite; }
+    .ps-live-label { font-size: calc(8px * var(--phone-scale)); color: var(--live); font-weight: 700; letter-spacing: .4px; white-space: nowrap; }
+    .ps-domain { font-size: calc(11px * var(--phone-scale)); font-weight: 700; color: var(--text); white-space: nowrap; }
+    .ps-change { font-size: calc(9px * var(--phone-scale)); color: var(--text-muted); }
+    .ps-right { display: flex; align-items: center; gap: calc(6px * var(--phone-scale)); }
     .ps-meta { text-align: right; }
-    .ps-time { font-size: 8px; color: var(--text-sub); }
-    .ps-req  { font-size: 7px; color: var(--text-muted); }
+    .ps-time { font-size: calc(8px * var(--phone-scale)); color: var(--text-sub); white-space: nowrap; }
+    .ps-req  { font-size: calc(7px * var(--phone-scale)); color: var(--text-muted); white-space: nowrap; }
     .ps-ring {
-      width: 32px; height: 32px;
+      width: calc(32px * var(--phone-scale)); height: calc(32px * var(--phone-scale));
       border-radius: 50%;
-      border: 2.5px solid rgba(150,150,170,.2);
+      border: calc(2.5px * var(--phone-scale)) solid rgba(150,150,170,.2);
       border-top-color: var(--accent);
       display: flex; align-items: center; justify-content: center;
-      font-size: 9px; font-weight: 700; color: var(--accent);
+      font-size: calc(9px * var(--phone-scale)); font-weight: 700; color: var(--accent);
+      flex-shrink: 0;
     }
     .ps-refresh {
-      width: 26px; height: 26px;
-      border-radius: 7px;
+      width: calc(26px * var(--phone-scale)); height: calc(26px * var(--phone-scale));
+      border-radius: calc(7px * var(--phone-scale));
       background: var(--card);
       border: 1px solid var(--border);
       display: flex; align-items: center; justify-content: center;
-      font-size: 13px; color: var(--accent);
+      font-size: calc(13px * var(--phone-scale)); color: var(--accent);
+      flex-shrink: 0;
     }
     /* Center number */
     .ps-center {
       flex: 1;
       display: flex; align-items: center; justify-content: center; flex-direction: column;
       gap: 0;
+      min-height: 0;
     }
     .ps-number {
       font-family: var(--font-disp);
-      font-size: 72px; font-weight: 700;
+      font-size: calc(72px * var(--phone-scale)); font-weight: 700;
       line-height: 1; color: var(--text);
     }
-    .ps-sublabel { font-size: 10px; color: var(--text-sub); margin-top: -2px; }
+    .ps-sublabel { font-size: calc(10px * var(--phone-scale)); color: var(--text-sub); margin-top: -2px; }
     /* Chart */
     .ps-chart {
-      display: flex; flex-direction: column; gap: 4px;
+      display: flex; flex-direction: column; gap: calc(4px * var(--phone-scale));
     }
-    .ps-chart-label { font-size: 7px; font-weight: 700; color: var(--text-muted); letter-spacing: .5px; text-transform: uppercase; }
+    .ps-chart-label { font-size: calc(7px * var(--phone-scale)); font-weight: 700; color: var(--text-muted); letter-spacing: .5px; text-transform: uppercase; }
     .ps-bars {
-      display: flex; align-items: flex-end; gap: 2px; height: 36px;
+      display: flex; align-items: flex-end; gap: 2px; height: calc(36px * var(--phone-scale));
     }
     .ps-bars span { flex: 1; border-radius: 2px; background: var(--accent); }
     .ps-xaxis { display: flex; justify-content: space-between; }
-    .ps-xaxis span { font-size: 7px; color: var(--text-muted); }
+    .ps-xaxis span { font-size: calc(7px * var(--phone-scale)); color: var(--text-muted); }
 
     /* ── PRICING fix — bottone sempre in fondo ── */
     .pricing-card {
